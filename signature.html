@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Nextly </title>
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom styles for this template -->
+    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <!--Error Message style-->
+    <link href="./css/errormessage/error.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="./img/logo.svg" class="logo-img" alt="logo">
+        </div>
+        <div class="user">
+            <img src="./img/user.svg" class="user-icon" alt="user">
+            <span>Henry Ben</span>
+        </div>
+    </header>
+
+    <main class="layout">
+        <aside class="sidebar">
+            <nav>
+                <ul class="nav-item">
+                    <li data-bs-toggle="tooltip" data-bs-placement="right" title="Home"
+                        data-bs-custom-class="custom-tooltip" class="active">
+                        <a href="#">
+                            <img src="./img/sidebar/home.svg" alt="home">
+                        </a>
+                    </li>
+                    <li data-bs-toggle="tooltip" data-bs-placement="right" title="Documents"
+                        data-bs-custom-class="custom-tooltip">
+                        <a href="#">
+                            <img src="./img/sidebar/documents.svg" alt="Documents">
+                        </a>
+                    </li>
+                    <li data-bs-toggle="tooltip" data-bs-placement="right" title="Templates"
+                        data-bs-custom-class="custom-tooltip">
+                        <a href="#">
+                            <img src="./img/sidebar/templates.svg" alt="Templates">
+                        </a>
+                    </li>
+                    <li data-bs-toggle="tooltip" data-bs-placement="right" title="SignForms"
+                        data-bs-custom-class="custom-tooltip">
+                        <a href="#">
+                            <img src="./img/sidebar/signform.svg" alt="SignForms">
+                        </a>
+                    </li>
+                    <li data-bs-toggle="tooltip" data-bs-placement="right" title="Reports"
+                        data-bs-custom-class="custom-tooltip">
+                        <a href="#">
+                            <img src="./img/sidebar/reports.svg" alt="Reports">
+                        </a>
+                    </li>
+                    <li data-bs-toggle="tooltip" data-bs-placement="right" title="Settings"
+                        data-bs-custom-class="custom-tooltip">
+                        <a href="#">
+                            <img src="./img/sidebar/settings.svg" alt="Settings">
+                        </a>
+                    </li>
+                    <li data-bs-toggle="tooltip" data-bs-placement="right" title="Logout"
+                        data-bs-custom-class="custom-tooltip">
+                        <a href="#">
+                            <img src="./img/sidebar/signout.svg" alt="Logout">
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+        <section class="page">
+            <h1 class="page-header">Send for signature</h1>
+            <h3 class="subheading">Upload Document</h3>
+
+
+            <section class="upload-doc mb-5 mt-3">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <div class="card">
+                            <div class="upload-section">
+                                <div class="drag-box" id="dragBox">
+                                    <!-- <input type="file" class="hidden-input"> -->
+                                    <div class="drag-info">
+                                        <img src="./img/add_file.svg" alt="">
+                                        <p id="dragFile">Drag files here</p>
+                                    </div>
+                                </div>
+                                <p class="text-light text-uppercase">Or</p>
+                                <div class="file-upload">
+                                    <div class="browse-file">
+                                        <p>Files Upload</p>
+                                        <button type="button" class="btn upload-btn btn-primary btn-sm">
+                                            <i class="fa-regular fa-folder-open"></i> Browse
+                                            <input id="fileInput" type="file" name="files[]" multiple>
+                                        </button>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <label>Document Name</label>
+                                        <input type="text"  id="fileName" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4">
+                        <div class="card h-100">
+                            <div class="item-middle row"  id="pdfViewer">
+                                <!-- <img src="./img/no-fille.svg" alt="" class="no-file"> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="item-split mb-3">
+                <h3 class="subheading">Add Recipient</h3>
+                <div class="btn-group gap-2">
+                    <button type="button" class="btn btn-outline btn-sm green-btn">
+                        <img src="./img/user-green.svg" alt="add me"> Add Me</button>
+                    <button type="button" class="btn btn-outline btn-sm red-btn">
+                        <img src="./img/notes.svg" alt="Add Bulk Recipients">Add Bulk Recipients</button>
+                </div>
+            </section>
+
+
+            <section class="w-100 form-list">
+                <div class="row">
+                    <div class="col-12 col-md-6 col-lg">
+                        <div class="form-group mb-2">
+                            <input type="text" id="nameInput" class="form-control" placeholder="Enter Name">
+                            <div id="nameError" class="error-message"></div> <!--error message-->
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg">
+                        <div class="form-group mb-2">
+                            <input type="email" id="emailInput" class="form-control" placeholder="Enter Email ID">
+                            <div id="emailError" class="error-message"></div>  <!--error message-->
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="form-group mb-2">
+                            <select lass="form-select" id="statusSelect" aria-label="Default select example">
+                                <option>Need to sign</option>
+                            </select>
+                            <div id="statusError" class="error-message"></div> <!--error message-->
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-2">
+                        <div class="form-group mb-2">
+                            <select lass="form-select" id="methodSelect" aria-label="Default select example">
+                                <option>Email</option>
+                            </select>
+                            <div id="methodError" class="error-message"></div> <!--error message-->
+                        </div>                  
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-auto">
+                        <button type="button" class="btn btn-secondary" id="addButton">
+                            <i class="fa-solid fa-plus"></i> Add
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <div class="main-table mt-3 wrapper">
+                <table class="table" id="userTable" cellspacing="10" cellpadding="10">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Action</th>
+                            <th>Email/Phone</th>
+                            <th style="width: 120px;"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center user gap-2">
+                                    <h4>A</h4>
+                                    <p>Ashley Turner</p>
+                                </div>
+                            </td>
+                            <td class="text-lowercase">ashleyturner@gmail.com </td>
+                            <td>Need to Sign</td>
+                            <td>
+                                <span><img src="./img/email.svg" alt="email" class="ep-icon"> Email</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline btn-sm custom" data-bs-toggle="modal"
+                                    data-bs-target="#customize">
+                                    <i class="fa-solid fa-gear"></i>Customize</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center user gap-2">
+                                    <h4>B</h4>
+                                    <p>Brian Rivera</p>
+                                </div>
+                            </td>
+                            <td class="text-lowercase">BrianRivera@gmail.com </td>
+                            <td>Need to Sign</td>
+                            <td>
+                                <span><img src="./img/phone.svg" alt="phone" class="ep-icon"> Phone</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline btn-sm custom">
+                                    <i class="fa-solid fa-gear"></i>Customize</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center user gap-2">
+                                    <h4>H</h4>
+                                    <p>Hugo Meunier</p>
+                                </div>
+                            </td>
+                            <td class="text-lowercase">hugoMeunier@gmail.com</td>
+                            <td>03/08/2024</td>
+                            <td>
+                                <span><img src="./img/email.svg" alt="email" class="ep-icon"> Email</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline btn-sm custom">
+                                    <i class="fa-solid fa-gear"></i>Customize</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center user gap-2">
+                                    <h4>D</h4>
+                                    <p>Donna Sullivan</p>
+                                </div>
+                            </td>
+                            <td class="text-lowercase">DonnaSullivan@gmail.com</td>
+                            <td>02/26/2024</td>
+                            <td>
+                                <span><img src="./img/phone.svg" alt="phone" class="ep-icon"> Phone</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline btn-sm custom">
+                                    <i class="fa-solid fa-gear"></i>Customize</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center user gap-2">
+                                    <h4>P</h4>
+                                    <p>Patricia Wilson</p>
+                                </div>
+                            </td>
+                            <td class="text-lowercase">PatriciaWilson@gmail.com</td>
+                            <td>02/26/2024</td>
+                            <td>
+                                <span><img src="./img/email.svg" alt="email" class="ep-icon"> Email</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline btn-sm custom">
+                                    <i class="fa-solid fa-gear"></i>Customize</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center user gap-2">
+                                    <h4>L</h4>
+                                    <p>Lilly Otto</p>
+                                </div>
+                            </td>
+                            <td class="text-lowercase">LillyOtto@gmail.com</td>
+                            <td>02/20/2024</td>
+                            <td>
+                                <span><img src="./img/email.svg" alt="email" class="ep-icon"> Email</span>
+                            </td>
+                            <td>
+                                <button type="button" class="btn btn-outline btn-sm custom">
+                                    <i class="fa-solid fa-gear"></i>Customize</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <section class="item-split mb-3">
+                <button type="button" class="btn btn-outline primary" data-bs-toggle="modal"
+                    data-bs-target="#moreSettings">
+                    <i class="fa-solid fa-ellipsis-vertical"></i> More Settings </button>
+                <button type="button" class="btn btn-primary" onclick="onSubmit()">
+                    Continue <i class="fa-solid fa-angle-right"></i></button>
+
+            </section>
+        </section>
+    </main>
+
+
+
+
+
+    <!--Popup Area-->
+
+    <!-- Customize -->
+    <div class="modal fade main-modal" id="customize" tabindex="-1" aria-labelledby="customizeLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="customizeLabel">Customize</h3>
+                    <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <img src="./img/modal_close.svg" alt="Close">
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row form-list">
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label>Private Note</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group mb-3">
+                                <label>Authentication Type</label>
+                                <select lass="form-select" aria-label="Default select example">
+                                    <option>None</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6">
+                            <div class="form-group mb-3">
+                                <label>Select Language</label>
+                                <select lass="form-select" aria-label="Default select example">
+                                    <option>English</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="subheader mt-2">Digital Signature providers</h3>
+                    <p>Select the digital signature providers to be made available for this recipient to sign this
+                        document(s) with.</p>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            All provider enable by administrator
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                        <label class="form-check-label" for="flexCheckChecked">
+                            Selected provider
+                        </label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline primary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- More Settings -->
+    <div class="modal fade main-modal" id="moreSettings" tabindex="-1" aria-labelledby="moreSettingsLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="moreSettingsLabel">More Settings</h3>
+                    <button type="button" class="modal-close" data-bs-dismiss="modal" aria-label="Close">
+                        <img src="./img/modal_close.svg" alt="Close">
+                    </button>
+                </div>
+                <div class="modal-body pb-0">
+                    <div class="row form-list">
+                        <div class="col-12 col-lg-3">
+                            <div class="form-group mb-3">
+                                <label>Days to complete</label>
+                                <input type="text" class="form-control" placeholder="" id="daysToComplete">
+                                <div id="daysError" class="error-message"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="form-group mb-3">
+                                <label>Agreement Valid until</label>
+                                <input type="text" class="form-control" placeholder="" id="validUntil">
+                                <div id="validError" class="error-message"></div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="form-group mb-3">
+                                <label>Document Type</label>
+                                <input type="email" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-3">
+                            <div class="form-group mb-3">
+                                <label>Folder Type</label>
+                                <input type="email" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group mb-3">
+                                <label>Description</label>
+                                <textarea class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <div class="d-flex gap-2 align-items-center">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Automatic reminder</label>
+                        <div class="form-check form-switch">   
+                            <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                        </div>                       
+                    </div>
+                    <div class="d-flex gap-3">
+                        <button type="button" class="btn btn-outline primary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!--Script-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.9.359/pdf.min.js"></script>
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/swiper/swiper-element-bundle.min.js"></script>
+    <script src="./js/animation/gsap.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/jquery/jquery-3.7.1.min.js"></script>
+    <script src="./js/signature.js"></script>
+</body>
+
+</html>

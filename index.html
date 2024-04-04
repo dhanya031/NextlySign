@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.122.0">
+    <title>Nextly </title>
+    <!-- Favicons -->
+    <link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+    <meta name="theme-color" content="#712cf9">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:slnt,wght@-10..0,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <!-- Custom styles for this template -->
+    <link href="./css/main.css" rel="stylesheet">
+    <link href="./css/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="./css/errormessage/error.css" rel="stylesheet">
+   
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="./img/logo.svg" class="logo-img" alt="logo">
+        </div>
+    </header>
+
+    <main>
+        <section class="main-card">
+            <div class="row row-cols-1 row-cols-lg-2 align-items-center flex-column-reverse flex-lg-row">
+                <div class="col">
+                    <div class="swiper login-slider">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide">
+                                <div class="slider-item">
+                                    <div class="item-img">
+                                        <img src="./img/create_a_document.svg" alt="">
+                                    </div>
+                                    <h1>Create a document.</h1>
+                                    <p>Viverra eu vulputate fermentum at eu. Ac malesuada phasellus elementum
+                                        consectetur vitae nulla condimentum.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="slider-item">
+                                    <div class="item-img">
+                                        <img src="./img/get_sign.svg" alt="">
+                                    </div>
+                                    <h1>Get signatures.</h1>
+                                    <p>Viverra eu vulputate fermentum at eu. Ac malesuada phasellus elementum
+                                        consectetur vitae nulla condimentum.</p>
+                                </div>
+                            </div>
+                            <div class="swiper-slide">
+                                <div class="slider-item">
+                                    <div class="item-img">
+                                        <img src="./img/folder.svg" alt="">
+                                    </div>
+                                    <h1>Keep all at one place.</h1>
+                                    <p>Viverra eu vulputate fermentum at eu. Ac malesuada phasellus elementum
+                                        consectetur vitae nulla condimentum.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+                <div class="col">
+                    <section class="log-form">
+                        <h2>Sign In</h2>
+                        <p>Enter your Signin credentials below.</p>
+                        <form class="main-form" id="loginForm" >
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input id="emailInput" type="text" class="form-control" onblur="emailValidation()">
+                                <span id="emailError" class="error-message"></span>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <div class="with-icon">
+                                    <input id="passwordInput" type="password" class="form-control" onblur="passwordValidation()">
+                                    <i id="togglePassword" class="fa-regular fa-eye" onclick="togglePasswordVisibility('togglePassword', 'passwordInput')"></i>
+                                </div>
+                                <span id="passwordError" class="error-message"></span>
+                            </div>
+                            <a href="" class="link-btn">Forget Password?</a>
+                            <button type="submit" class="btn btn-primary my-3" onclick="validateForm()" >Sign In</button>
+                        </form>
+                        
+                        <h3>Sign in using</h3>
+                        <ul class="social-icons">
+                            <li>
+                                <a href="">
+                                    <img src="./img/google.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/facebook.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/in.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/x.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/apple.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/git.svg" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="./img/microsoft.svg" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                        <hr>
+                        <h3 class="d-flex">New User?, <a href="signup.html"  class="link-btn"> Signup</a></h3>
+                       
+                    </section>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--Script-->
+    <script src="./js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="./js/swiper/swiper-element-bundle.min.js"></script>
+    <script src="./js/main.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
